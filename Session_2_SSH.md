@@ -1,6 +1,6 @@
 Bobby:
 
-Modified file session 1 file to .md format
+Modified file session 1 file from docx to .md format
 
 Generated ssh keys
 
