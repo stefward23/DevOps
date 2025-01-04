@@ -1,9 +1,8 @@
 # DevOps
 
+# Stefan:
 
-Stefan:
-
-Configured raspberry pi 3: 
+# Configured raspberry pi 3: 
 
 Command: cat /etc/os-release
 
@@ -18,7 +17,7 @@ HOME_URL="http://www.raspbian.org/"
 SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
 BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
 
-Filesystem:
+# Filesystem:
 
 Command: df -h
 
@@ -39,13 +38,7 @@ DDNS: mypc.webhop.me
 Successfully enabled port forwarding on port 22
 ![image](https://github.com/user-attachments/assets/b029d0da-3795-420a-8eb4-ce4ce23ed91a)
 
-
-
-
-
-
-
-Akeem:
+# Akeem:
 
 Configured Mint OS: 
 
@@ -64,7 +57,7 @@ PRIVACY_POLICY_URL="https://www.linuxmint.com/"
 VERSION_CODENAME=virginia
 UBUNTU_CODENAME=jammy
 
-Filesystem:
+# Filesystem:
 
 Command: df -h
 
@@ -80,20 +73,7 @@ tmpfs           1.6G  160K  1.6G   1% /run/user/1000
 Installed wireguard: 
 https://www.instructables.com/Wireguard-VPN-Server-Linux-Ubuntu-Mint-How-To/
 
-
-
-
-
-
-
-
-
-
-
-
-
 Enabled port forwarding:
- 
 
 Attempted to ssh from a remote location and was unsuccessful
 
@@ -108,12 +88,6 @@ Command: sudo iptables -L -n | grep 22
 ![image](https://github.com/user-attachments/assets/10c1cbee-d1e4-4f1f-b119-cd11b20ad13e)
 
 
-
-
-
-
-
-
 Retried using a different server
 
 Configured Ubuntu-Server VM:
@@ -123,23 +97,14 @@ Command: cat /etc/os-release
 ![image](https://github.com/user-attachments/assets/d6c37ba4-9866-4056-804f-3a24b4da1abd)
 
 
- 
-
-Filesystem:
+# Filesystem:
 
 Command: df -h
 
 ![image](https://github.com/user-attachments/assets/74bc7a0a-483b-4285-8179-1e71bb111ee6)
 
  
-
 DDNS: https://www.noip.com/
 DDNS: techd.ddnsking.com
 
 Successfully enabled port forwarding on port 22
-
-
-
-
-
-
