@@ -1,4 +1,4 @@
-Bobby:
+# Stefan:
 
 Modified file session 1 file from docx to .md format
 
@@ -8,7 +8,6 @@ Link: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/ge
 
 Added ssh keys to GitHub
 ![image](https://github.com/user-attachments/assets/2dfa4b28-e3a7-4c3c-a611-03f002937288)
-
 
 Cloned repository from GitHub using gitbash
 
@@ -30,7 +29,7 @@ Ssh connected successfully
 
 Copied public key to server: Failed!
 
-Dope:
+# Akeem:
 
 Created new user "bobby" 
 
@@ -38,7 +37,7 @@ Created home folder for user bobby
 
 Changed user, group and other permissions to 750
 
-Bobby: 
+# Stefan: 
 
 Ssh using new user: bobby@techd.ddnsking.com
 
