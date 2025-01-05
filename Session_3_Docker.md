@@ -1,4 +1,4 @@
-# Used vscode to ssh into a remote computer.
+Used vscode to ssh into a remote computer.
 
 # Dope:
 Attempted to run docker from non root users.
