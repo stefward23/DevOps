@@ -1,6 +1,6 @@
-#Discussed Docker compose 
+# Discussed Docker compose 
 
-#Akeem
+# Akeem
 
 Used docker compose to create 2 containers on the same network
 Container 1: Apache installed
