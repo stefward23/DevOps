@@ -13,3 +13,7 @@ Downloaded mySQL client on container 1.
 Accessed mySQL table information from container 2 using container 1.
 
 Mounted a volume to store files from each container.
+
+# Discussed using apt update command in containers
+
+Decided to go against it. Can cause updates and break system when image is built from Dockerfile/Docker compose file
