@@ -2,10 +2,11 @@
 
 ## Raspberry Pi 3B+ Commands
 
+```
 wget --content-disposition https://www.noip.com/download/linux/latest
 tar xf noip-duc_3.3.0.tar.gz
 cd /home/$USER/noip-duc_3.3.0/binaries && sudo apt install ./noip-duc_3.3.0_arm64.deb
-
+```
 noip-duc -g all.ddnskey.com --username <DDNS Key Username> --password <DDNS Key Password>
 
 ## Run as a Daemon/Service
