@@ -1,12 +1,17 @@
 # DevOps
 
-# Stefan:
+### Stefan:
 
 # Configured raspberry pi 3: 
 
-Command: cat /etc/os-release
+### Check OS model
 
- PRETTY_NAME="Raspbian GNU/Linux 10 (buster)"
+```
+cat /etc/os-release
+```
+**output:**
+
+PRETTY_NAME="Raspbian GNU/Linux 10 (buster)"
 NAME="Raspbian GNU/Linux"
 VERSION_ID="10"
 VERSION="10 (buster)"
@@ -19,7 +24,11 @@ BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
 
 # Filesystem:
 
-Command: df -h
+### Check Disk volumes
+
+```
+df -h
+```
 
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        29G  4.1G   24G  15% /
@@ -31,18 +40,19 @@ tmpfs           462M     0  462M   0% /sys/fs/cgroup
 /dev/mmcblk0p1  253M   49M  204M  20% /boot
 tmpfs            93M  4.0K   93M   1% /run/user/100
 
-
-Configured for DNS: https://www.noip.com/
-DDNS: mypc.webhop.me
+### Configured for DNS: https://www.noip.com/
+### DDNS: mypc.webhop.me
 
 Successfully enabled port forwarding on port 22
 ![image](https://github.com/user-attachments/assets/b029d0da-3795-420a-8eb4-ce4ce23ed91a)
 
-# Akeem:
+### Akeem:
 
 Configured Mint OS: 
-
-Command: cat /etc/os-release
+```
+cat /etc/os-release
+```
+**output:**
 
 NAME="Linux Mint"
 VERSION="21.3 (Virginia)"
@@ -59,7 +69,9 @@ UBUNTU_CODENAME=jammy
 
 # Filesystem:
 
-Command: df -h
+```
+df -h
+```
 
 Filesystem      Size  Used Avail Use% Mounted on
 tmpfs           1.6G  1.8M  1.6G   1% /run
@@ -87,19 +99,22 @@ Ensured the ip on Mint OS server allowed incoming SSH connections:
 Command: sudo iptables -L -n | grep 22
 ![image](https://github.com/user-attachments/assets/10c1cbee-d1e4-4f1f-b119-cd11b20ad13e)
 
-
 Retried using a different server
 
 Configured Ubuntu-Server VM:
 
-Command: cat /etc/os-release
+```
+cat /etc/os-release
+```
 
 ![image](https://github.com/user-attachments/assets/d6c37ba4-9866-4056-804f-3a24b4da1abd)
 
 
 # Filesystem:
 
-Command: df -h
+```
+ df -h
+```
 
 ![image](https://github.com/user-attachments/assets/74bc7a0a-483b-4285-8179-1e71bb111ee6)
 
