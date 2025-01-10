@@ -49,28 +49,28 @@ noip-duc -g all.ddnskey.com --username <DDNS Key Username> --password <DDNS Key 
 ```
 ## Enable service for automatic start on reboot
 
-#Copy service file to systemd/system
+## Copy service file to systemd/system
 
 cp /noip-duc_3.3.0/debian/service /etc/systemd/system/noip-duc.service
 
-# Add line 6: ExecStart=/usr/bin/noip-duc to:
+## Add line 6: ExecStart=/usr/bin/noip-duc to:
 
 vim /etc/systemd/system/noip-duc.service 
 
-# Create default file
+## Create default file
 
 vim /etc/default/noip-duc
 
-# Add the following: 
+## Add the following: 
 NOIP_USERNAME=username
 NOIP_PASSWORD=password
 NOIP_HOSTNAMES=example.ddns.net
 
-# Reload and start services
+## Reload and start services
 
 sudo systemctl daemon-reload
 sudo systemctl enable noip-duc
 sudo systemctl start noip-duc
 
-# Check status 
+## Check status 
 sudo systemctl status noip-duc
