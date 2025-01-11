@@ -19,27 +19,27 @@ Failed!
 ### Both:
 Tried to push a docker image to the repo
 
-## how to login to docker
+## How to login to docker
 ```
 docker login -<username>
 ```
-## see docker images
+## See docker images
 docker images (to see local images)
 ```
 docker tag <image_name>:<image_tag> <user_name>/<repo_name>:<new_tag>
 ```
 ```
 docker pull <repo_name>/<image_name>:<image_tag>
-```
+``````
 ```
 docker push <repo_name>:<tag_name>
 ```
 ```
 docker rmi <image_name>:<tag_name>
 ```
-## add collaborator
+## Add collaborator
 
-to push to collabs repo
+### Push to collabs repo
 
 ```
 docker tag <image_name>:<tag_name> <ex_repo_name>:<tag_name>
@@ -51,5 +51,7 @@ docker push <ex_repo_name>
 docker search <username> 
 ```
 
-# to search for docker image tags
+## To search for docker image tags
+```
 curl -s https://registry.hub.docker.com/v2/repositories/dopeignite/stefmward/tags | jq '.results[].name'
+```
