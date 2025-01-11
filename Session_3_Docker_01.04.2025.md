@@ -6,8 +6,8 @@ Gave away root privileges to all users like a bot.
 Create a docker group and added users to it.  
 Copied .bashrc file to bobby.  
 Added LS_COLORS to the .bashrc file.  
-Changed owner and group of .bashrc file to bobby:bobby  
-Failed!\
+Changed owner and group of .bashrc file to bobby:bobby    
+Failed!  
 ## Added Aliases manually
 ```
 alias egrep='egrep --color=auto'  
