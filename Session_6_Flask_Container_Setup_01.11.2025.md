@@ -18,7 +18,7 @@ Blinker provides support for Signals
 
 ### Project structure:
 
-#### Python/Flask with Nginx proxy and MariaDB database
+#### Python/Flask with Apache proxy and MariaDB database
 ```
 .
 ├── compose.yaml
@@ -32,10 +32,11 @@ Blinker provides support for Signals
 
 Example project for reference: https://github.com/docker/awesome-compose/tree/master/nginx-flask-mysql
 
-NOTE:
+## multi-platform environemtns:
 
-## syntax=docker/dockerfile:1.4
-### FROM --platform=$BUILDPLATFORM python:3.10-alpine AS builder
+syntax=docker/dockerfile:1.4
+
+FROM --platform=$BUILDPLATFORM python:3.10-alpine AS builder
 
 The --platform flag indicates the platform (e.g., linux/amd64, linux/arm64) on which the build should run.
 
