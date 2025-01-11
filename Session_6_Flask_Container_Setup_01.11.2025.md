@@ -3,6 +3,7 @@
 https://flask.palletsprojects.com/en/stable/installation/
 
 ## Python Version
+
 Flask supports Python 3.9 and newer
 
 ### Dependencies
@@ -15,10 +16,10 @@ ItsDangerous securely signs data to ensure its integrity. This is used to protec
 Click is a framework for writing command line applications. It provides the flask command and allows adding custom management commands.
 Blinker provides support for Signals
 
-# Python/Flask with Nginx proxy and MySQL database
+### Project structure:
 
-Project structure:
-
+#### Python/Flask with Nginx proxy and MariaDB database
+```
 .
 ├── compose.yaml
 ├── flask
@@ -27,6 +28,7 @@ Project structure:
 │   └── server.py
 └── nginx
     └── apache2.conf 
+```
 
 Example project for reference: https://github.com/docker/awesome-compose/tree/master/nginx-flask-mysql
 
