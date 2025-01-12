@@ -17,7 +17,7 @@ Click is a framework for writing command line applications. It provides the flas
 Blinker provides support for Signals
 
 ### Project structure:
-![image](https://github.com/user-attachments/assets/87ca2d13-90d4-47fc-9ff0-686816b0df81)
+
 
 #### Python/Flask with Apache proxy and MariaDB database
 
