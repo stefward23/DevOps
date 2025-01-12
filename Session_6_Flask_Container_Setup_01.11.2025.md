@@ -31,7 +31,7 @@ Example project for reference: https://github.com/docker/awesome-compose/tree/ma
 
 ### Issues exprienced:
 
-Created webapp directory in the root directory of our Server and expirenced issues when attempting to run docker build.
+Created webapp directory in the root directory of our Server and experienced issues when attempting to run docker build.
 
 ```
 2025-01-11T20:12:18Z docker.dockerd[1111]: time="2025-01-11T20:12:18.455086793Z" level=error msg=/moby.buildkit.v1.Control/Solve error="rpc error: code = Unknown desc = failed to read dockerfile: open Dockerfile: no such file or directory"
@@ -80,6 +80,13 @@ def hello_world():
     return "<p>Hello, World!</p>"
 
 ````
+
+#### Running container:
+![image](https://github.com/user-attachments/assets/38e7b9bf-3ea9-4c00-811d-008cfa9f4c3f)
+
+#### Web app access:
+![image](https://github.com/user-attachments/assets/63f61de7-73f1-4f31-aef2-afc0c4312bb7)
+
 
 ## Note
 
