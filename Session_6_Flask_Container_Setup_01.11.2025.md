@@ -83,7 +83,7 @@ def hello_world():
 
 ## Note
 
-### multi-platform environemtns:
+### multi-platform environments:
 
 The --platform flag indicates the platform (e.g., linux/amd64, linux/arm64) on which the build should run.
 
