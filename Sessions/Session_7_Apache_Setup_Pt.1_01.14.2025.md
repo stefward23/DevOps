@@ -1,6 +1,6 @@
-#Apache Setup for Reverse Proxy
+# Apache Setup for Reverse Proxy
 
-#Flask apache documentation
+## Flask apache documentation
 https://flask.palletsprojects.com/en/stable/deploying/apache-httpd/
 
 ## Started by attempting to create a dockerfile for apline with apache.
