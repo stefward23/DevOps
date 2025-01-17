@@ -1,4 +1,4 @@
-# Configure apache Dockerfile
+# Configuring Apache Dockerfile
 
 Using the flask Apache httpd documentation
 
