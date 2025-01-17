@@ -1,4 +1,4 @@
-# Configure Apache image
+# PT.2 Configuring Apache Image 
 # Deploy Apache container and connect it with Flask container.
 
 ### Removed the apache configuration file
