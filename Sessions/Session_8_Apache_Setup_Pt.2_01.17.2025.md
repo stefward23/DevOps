@@ -1,4 +1,4 @@
-# PT.2 Configuring Apache proxy for Flask Application
+# PT.2 Apache Setup for Reverse Proxy (Flask Application)
 
 # Deploy Apache container and connect it with Flask container.
 
