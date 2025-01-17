@@ -3,9 +3,9 @@
 ## Deploy Apache container and connect it with Flask container.
 
 
-### Removed all previous images and containers to start with a clean environment
+### Removed all previous images and containers. Starting with a clean environment
 
-### Issue
+### Issue expierenced when rebuilding image and starting container
 
 We recreated the docker image for the flask application
 
