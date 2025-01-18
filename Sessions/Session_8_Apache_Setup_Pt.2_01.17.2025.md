@@ -62,7 +62,14 @@ docker run --network=test-net -d -p 80:80 httpd
 ````
 docker exec -it 7e4f239xxxxx /bin/bash
 ````
-#### 5: Edited the /usr/local/apache2/conf/httpd.conf
+
+#### 5: Installed a text editor by running the following commands
+```
+apt update && apt install vim
+
+```
+
+##### 6: Edited the /usr/local/apache2/conf/httpd.conf
 
 Uncommented as suggested by flask documentation: https://flask.palletsprojects.com/en/stable/deploying/apache-httpd/
 ![image](https://github.com/user-attachments/assets/e72fde52-dcda-4d65-b881-4c4e7fc37519)
