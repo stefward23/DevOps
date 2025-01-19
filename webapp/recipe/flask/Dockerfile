@@ -19,3 +19,4 @@ ENV PATH="/venv/bin:$PATH"
 # Runs Flask application. Did not have to specify the app file since by default it uses app.py, which we decided to name our file.
 
 CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
+
