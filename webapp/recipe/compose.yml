@@ -1,0 +1,42 @@
+services:
+  apache:
+    build:
+      context: apache
+    image: web:v1
+    restart: always
+    volumes:
+      - web-data:/usr/local/apache2
+    ports:
+      - 80:80
+    networks:
+      - public
+  flask:
+    build:
+      context: flask
+    image: flask:v1
+    restart: always
+    volumes:
+      - flask-data:/app
+    ports:
+      - 5000:5000
+    networks:
+      - public
+      - private
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: 123456
+    ports:
+      - 3306:3306
+    networks:
+      - private
+
+
+volumes:
+  web-data:
+  flask-data:
+
+networks:
+  public:
+  private:
