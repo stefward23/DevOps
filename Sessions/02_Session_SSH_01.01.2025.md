@@ -1,4 +1,5 @@
-# Configure SSH to Github repo Time: 5 hrs
+# Configure SSH to Github repo 
+#### Time: 5 hrs
 
 ### Stefan:
 
