@@ -1,4 +1,4 @@
-# DevOps
+# DevOps 5hrs
 
 ### Stefan:
 
