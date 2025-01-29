@@ -1,4 +1,5 @@
-# PT.2 Apache Setup for Reverse Proxy (Flask Application) 3hrs
+# PT.2 Apache Setup for Reverse Proxy (Flask Application) 
+#### Time: 3 hrs
 
 ## Deploy Apache container and connect it with Flask container.
 
