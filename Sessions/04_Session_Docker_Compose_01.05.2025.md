@@ -1,4 +1,5 @@
-# Discussed Docker compose 3hrs
+# Discussed Docker compose 
+#### Time: 3 hrs
 
 ### Akeem
 
