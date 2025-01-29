@@ -1,4 +1,4 @@
-# Review Recipe App Architecture
+# Review Recipe App Architecture 4hrs
 ## Decided on having isolated networks to enhance security
 
 [screenshot of new architecture]
