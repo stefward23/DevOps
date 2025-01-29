@@ -1,4 +1,5 @@
-# Review Recipe App Architecture 4hrs
+# Review Recipe App Architecture 
+#### Time: 4 hrs
 ## Decided on having isolated networks to enhance security
 
 [screenshot of new architecture]
