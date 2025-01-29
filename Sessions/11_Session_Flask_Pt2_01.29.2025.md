@@ -1,4 +1,5 @@
-# Connection to Mariadb
+# Connection to Mariadb 2hrs
+
 
 ### Imported and used function from another .py file.
 
