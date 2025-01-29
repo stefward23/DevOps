@@ -1,4 +1,5 @@
-# PT.1 Apache Setup for Reverse Proxy (Flask Application) 2hrs
+# PT.1 Apache Setup for Reverse Proxy (Flask Application) 
+#### Time: 2 hrs
 
 ## Flask apache documentation
 https://flask.palletsprojects.com/en/stable/deploying/apache-httpd/
