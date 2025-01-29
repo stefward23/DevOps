@@ -1,5 +1,5 @@
 # Used vscode to ssh into a remote computer. 
-#### Time 3 hr
+#### Time: 3 hrs
 
 ### Akeem:
 Attempted to run docker from non root users.  
