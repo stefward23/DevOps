@@ -1,4 +1,4 @@
-# DevOps 5hrs
+# DevOps Time: 5 hrs
 
 ### Stefan:
 
