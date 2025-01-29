@@ -1,4 +1,4 @@
-# Added Dynamic Update Client DUC to macpi & beastubuntu 
+# Added Dynamic Update Client DUC to macpi & beastubuntu 2hrs
 ## Raspberry Pi 3B+ Commands
 ```
 wget --content-disposition https://www.noip.com/download/linux/latest
