@@ -1,2 +1,2 @@
 # Python Exercises
-### time: 3 hrs
+#### Time: 3 hrs
