@@ -1,4 +1,4 @@
-# Connect Flask app to Mariadb
+# Connected Flask app to Mariadb and successfully created a db
 ### Time: 3 hrs
 
 #### Helpful links 
@@ -16,5 +16,5 @@ https://flask.palletsprojects.com/en/stable/quickstart/#accessing-request-data
 If the connection is not successful an error message is returned.
 
 
-### Created a simple function that creates a database
+### Created a function that creates a database
 If database is not created then it closes.
