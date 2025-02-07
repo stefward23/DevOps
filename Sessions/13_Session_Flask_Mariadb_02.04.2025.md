@@ -1,5 +1,5 @@
 # Connected Flask app to Mariadb and successfully created a db
-### Time: 3 hrs
+#### Time: 3 hrs
 
 #### Helpful links 
 ```
