@@ -33,7 +33,7 @@
   ![image](https://github.com/user-attachments/assets/f63c3bd5-ae90-40d7-90e3-dc468ddb3eca)
 
 
-### We ended the night by creating dictionaries inside lists.
+### We ended the night by creating list of dictionaries.
 
 
 ![image](https://github.com/user-attachments/assets/0248a24b-f531-475c-84cc-2097273db248)
