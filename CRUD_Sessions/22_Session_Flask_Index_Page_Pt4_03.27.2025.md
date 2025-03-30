@@ -1,6 +1,6 @@
 # Creating layout of Recipe App
 
-#### Time: 
+#### Time: 3 hrs
 
 # Plan
 
