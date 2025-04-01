@@ -10,5 +10,10 @@
 ![image](https://github.com/user-attachments/assets/f8d29f61-36a5-4fb4-a6c8-f3c69c7cca4d)
 
 ## References
-#### https://flask.palletsprojects.com/en/stable/tutorial/views/
-#### https://flask.palletsprojects.com/en/stable/tutorial/templates/#
+
+```
+https://flask.palletsprojects.com/en/stable/tutorial/views/
+```
+```
+https://flask.palletsprojects.com/en/stable/tutorial/templates/#
+```
