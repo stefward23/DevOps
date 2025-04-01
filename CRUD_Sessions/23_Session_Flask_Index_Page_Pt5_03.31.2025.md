@@ -1,6 +1,6 @@
 #  Recipe App with Database 
 
-#### Time: 2.5 Hours
+#### Time: 2.5 hrs
 
 # Plan: Take input from user and add entry into database
 
