@@ -13,3 +13,8 @@
 
 ![image](https://github.com/user-attachments/assets/7a10e39d-65f1-45e2-9bf6-d502d955e8eb)
 
+## References
+
+```
+https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-a-flask-application
+```
