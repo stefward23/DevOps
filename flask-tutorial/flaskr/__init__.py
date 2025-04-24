@@ -1,5 +1,6 @@
 import mariadb
-from flask import Flask
+import datetime
+from flask import Flask, render_template, request, redirect
 import sys
 
 app = Flask(__name__)
@@ -11,7 +12,7 @@ def connectToDB():
          port=3306,
          user="root",
          password="123456",
-         database="mydatabase"
+         database="myrecipes"
          )
       return conn
       
@@ -24,21 +25,18 @@ cur = conn.cursor()
 
 def createUsers():
    try:
-      cur.execute("CREATE TABLE tick (id INT AUTO_INCREMENT PRIMARY KEY, FirstName varchar(255), LastName varchar(255))")
-      sql = ("INSERT INTO tick FirstName, LastName VALUES (%s, %s)")
-      val = ('Peter', 'Parker')
+      cur.execute("CREATE TABLE IF NOT EXISTS avengers (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(255), LastName VARCHAR(255))")
+      print("works")
+      sql = "INSERT INTO avengers (FirstName, LastName) VALUES (%s, %s)"
+      val = ('Bruce', 'Cat')
       cur.execute(sql, val)
       conn.commit()
-      cur.execute("SELECT * FROM tick")
+      cur.execute("SELECT * FROM avengers")
       print(cur.fetchall())
    except:
-      cur.close()
+      print("did not work")
 
 
-
-createUsers()
-
-""""
 def updateUsers():
    try:
       update = "UPDATE users SET FirstName = 'Harry', LastName = 'Potter' WHERE FirstName = 'Jack'"
@@ -49,10 +47,7 @@ def updateUsers():
    except:
       cur.close()
 
-updateUsers()
-"""
 
-"""
 def deleteUsers():
    try:
       cur.execute("USE mydatabase")
@@ -65,8 +60,6 @@ def deleteUsers():
       cur.close()
    
 
-deleteUsers()
-
 
 def dropDatabase ():
    cur = connectToDB()
@@ -76,9 +69,6 @@ def dropDatabase ():
    except:
       cur.close()
 
-
-# Use Connection
-@app.route('/', methods=['GET','POST'])
 def database():  
    try:
       cur.execute("USE mydatabase")
@@ -88,12 +78,69 @@ def database():
       return "{}".format(result)
    except:
       cur.close()
-   
+
+# #Creates loop 
+ 
+# names = [
+#          {"firstName": "John", "lastName": "Smith"},
+#          {"firstName": "Betty", "lastName": "White"},
+#          {"firstName": "Carl", "lastName": "Ben"},
+#    ]
+
+# for name in names:
+#    print(names[0]["firstName"])
 
 
+content = "Static content added to the html form"
 
+# Use Connection
+
+@app.route('/home/', methods=['GET', 'POST'])
+def enterRecipe():
+   if request.method == 'POST':
+      recipename = request.form['recipe_name']
+      mealtime = request.form['meal_time']
+      ingredients = request.form['ingredients']
+      instructions = request.form['instructions']
+      db = connectToDB()
+      cr = db.cursor()
+      error = None
+
+      if not recipename:
+         error = "Recipe is needed."
+      elif not mealtime:
+         error = "Mealtime is needed."
+      elif not ingredients:
+         error = "Ingredients is needed."
+      elif not instructions:
+         error = "Instructions is needed."
+
+      if error is None:
+         try:
+            cr.execute(
+            "INSERT INTO recipes (RecipeName, MealTime, Ingredients, Instructions) VALUES (?, ?, ?, ?)", (recipename, mealtime, ingredients, instructions),
+            )
+            db.commit()
+         except cr.IntegrityError:
+            error = f"Recipe {recipename} is already entered."
+         else: 
+            return render_template("home.html")
+
+   return render_template("home.html")    
+
+
+@app.route('/recipes/')
+def recipeList():  
+   try:
+      cur.execute("USE myrecipes")
+      sql = "SELECT * FROM recipes"
+      cur.execute(sql)
+      result = cur.fetchall()
+      return "{}".format(result)
+   except:
+      cur.close()
 
 
 if __name__ =='__main__':
  app.run(debug=True, host='0.0.0.0')
-"""
+

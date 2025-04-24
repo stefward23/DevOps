@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    
+<ol>
+    <li id="head">hello</li>
+    <li>yo</li>
+</ol>
+<ul>
+    <li>hello</li>
+    <li>yo</li>
+</ul>
+
+<ul>
+    {% for item in users  %}
+        <li>{{item.firstName}} {{item.lastName}}</li>
+    {% endfor %}
+    </ul>
+
+<a href="/">link to page</a>
+
+<style>
+#head {
+    background-color: yellow;
+}
+li {
+    background-color: blue;
+}
+
+</style>
+</body>
+</html>

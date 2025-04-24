@@ -1,0 +1,10 @@
+{% extends 'navbar.html' %}
+    
+{% block content %}
+<!-- <h1>List of Recipes</h1> -->
+<ul>
+    {% for item in users  %}
+        <li>{{item.firstName}} {{item.lastName}}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
