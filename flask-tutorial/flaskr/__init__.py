@@ -8,7 +8,7 @@ app = Flask(__name__)
 def connectToDB():
    try:  
       conn = mariadb.connect(
-         host="172.19.0.3",
+         host="172.19.0.2",
          port=3306,
          user="root",
          password="123456",
@@ -136,9 +136,11 @@ def recipeList():
       sql = "SELECT * FROM recipes"
       cur.execute(sql)
       result = cur.fetchall()
-      return "{}".format(result)
+      # return "{}".format(result)
    except:
       cur.close()
+
+   return render_template("recipes.html", result = result)    
 
 
 if __name__ =='__main__':
