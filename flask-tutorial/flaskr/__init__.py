@@ -106,14 +106,14 @@ def enterRecipe():
       cr = db.cursor()
       error = None
 
-      if not recipename:
-         error = "Recipe is needed."
-      elif not mealtime:
-         error = "Mealtime is needed."
-      elif not ingredients:
-         error = "Ingredients is needed."
-      elif not instructions:
-         error = "Instructions is needed."
+      # if not recipename:
+      #    error = "Recipe is needed."
+      # elif not mealtime:
+      #    error = "Mealtime is needed."
+      # elif not ingredients:
+      #    error = "Ingredients is needed."
+      # elif not instructions:
+      #    error = "Instructions is needed."
 
       if error is None:
          try:
@@ -141,6 +141,38 @@ def recipeList():
       cur.close()
 
    return render_template("recipes.html", result = result)    
+
+
+@app.route('/recipes/<int:id>', methods=["GET"])
+def select1Recipe(id):
+   try:
+      test1=cur.execute("USE myrecipes")
+      print(test1)
+      # sql = "SELECT * FROM recipes WHERE id='1'"
+      # cur.execute(sql)
+      # test = cur.fetchone()
+
+   except:
+      cur.close()
+
+   return f'This post has the id {id}'
+
+      # return test
+   #    # recipes = recipes.query.get(id)
+   #    cur.execute(sql)
+   #    sql = cur.fetchone()
+   # except:
+   #    cur.close()
+
+   # return f("Your recipe: {sql}")  
+   
+   #    cur.execute(recipes)
+   #    conn.commit()
+   #    cur.execute("SELECT * FROM users")
+   #    print(cur.fetchall())
+   # except:
+   #    cur.close()
+   
 
 
 if __name__ =='__main__':
