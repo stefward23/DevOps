@@ -147,11 +147,13 @@ def recipeList():
 def select1Recipe(id):
    try:
       test1=cur.execute("USE myrecipes")
-      print(test1)
-      # sql = "SELECT * FROM recipes WHERE id='1'"
+      sql = "SELECT * FROM recipes WHERE id='2'"
+      cur.execute(sql)
+      result = cur.fetchone()
+      result2 = str(result) 
       # cur.execute(sql)
       # test = cur.fetchone()
-
+      return result2
    except:
       cur.close()
 
