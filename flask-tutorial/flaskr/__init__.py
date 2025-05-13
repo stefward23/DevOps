@@ -8,7 +8,7 @@ app = Flask(__name__)
 def connectToDB():
    try:  
       conn = mariadb.connect(
-         host="172.19.0.2",
+         host="172.19.0.3",
          port=3306,
          user="root",
          password="123456",
@@ -146,18 +146,26 @@ def recipeList():
 @app.route('/recipes/<int:id>', methods=["GET"])
 def select1Recipe(id):
    try:
-      test1=cur.execute("USE myrecipes")
-      sql = "SELECT * FROM recipes WHERE id='2'"
-      cur.execute(sql)
+      # test1=cur.execute("USE myrecipes")
+      # sql = "SELECT * FROM recipes WHERE id='3'"
+      # cur.execute(sql)
+      # result = cur.fetchone()
+      # print(result)
+      # result2 = str(result)
+
+      test2=cur.execute("USE myrecipes")
+      delete = "DELETE FROM recipes where id='2'"
+      cur.execute(delete)
+      conn.commit()
       result = cur.fetchone()
-      result2 = str(result) 
+      print(result)
       # cur.execute(sql)
       # test = cur.fetchone()
       return result2
    except:
       cur.close()
 
-   return f'This post has the id {id}'
+   return render_template("recipes.html")
 
       # return test
    #    # recipes = recipes.query.get(id)
