@@ -8,7 +8,7 @@ app = Flask(__name__)
 def connectToDB():
    try:  
       conn = mariadb.connect(
-         host="172.19.0.2",
+         host="172.19.0.3",
          port=3306,
          user="root",
          password="123456",
@@ -135,47 +135,31 @@ def recipeList():
       cur.execute("USE myrecipes")
       sql = "SELECT * FROM recipes"
       cur.execute(sql)
-      result = cur.fetchall()
-      # return "{}".format(result)
+      # results = cur.fetchall()
+      results = cur.fetchall()
+      
    except:
       cur.close()
 
-   return render_template("recipes.html", result = result)    
+   return render_template("recipes.html", results = results)    
 
 
 @app.route('/recipes/<int:id>', methods=["GET"])
 def select1Recipe(id):
    try:
-      test1=cur.execute("USE myrecipes")
-      sql = "SELECT * FROM recipes WHERE id='2'"
-      cur.execute(sql)
-      result = cur.fetchone()
-      result2 = str(result) 
-      # cur.execute(sql)
-      # test = cur.fetchone()
-      return result2
+
+      cur.execute("USE myrecipes")
+      delete = "DELETE FROM recipes where id='4'"
+      cur.execute(delete)
+      conn.commit()
+      results = cur.fetchone()
+   
+
+      results = cur.execute("SELECT * FROM recipes").fetchall()
    except:
       cur.close()
-
-   return f'This post has the id {id}'
-
-      # return test
-   #    # recipes = recipes.query.get(id)
-   #    cur.execute(sql)
-   #    sql = cur.fetchone()
-   # except:
-   #    cur.close()
-
-   # return f("Your recipe: {sql}")  
-   
-   #    cur.execute(recipes)
-   #    conn.commit()
-   #    cur.execute("SELECT * FROM users")
-   #    print(cur.fetchall())
-   # except:
-   #    cur.close()
-   
-
+   return redirect('/recipes/')
+   # return render_template("recipes.html")
 
 if __name__ =='__main__':
  app.run(debug=True, host='0.0.0.0')
