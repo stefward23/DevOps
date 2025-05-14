@@ -135,55 +135,31 @@ def recipeList():
       cur.execute("USE myrecipes")
       sql = "SELECT * FROM recipes"
       cur.execute(sql)
-      result = cur.fetchall()
-      # return "{}".format(result)
+      # results = cur.fetchall()
+      results = cur.fetchall()
+      
    except:
       cur.close()
 
-   return render_template("recipes.html", result = result)    
+   return render_template("recipes.html", results = results)    
 
 
 @app.route('/recipes/<int:id>', methods=["GET"])
 def select1Recipe(id):
    try:
-      # test1=cur.execute("USE myrecipes")
-      # sql = "SELECT * FROM recipes WHERE id='3'"
-      # cur.execute(sql)
-      # result = cur.fetchone()
-      # print(result)
-      # result2 = str(result)
 
-      test2=cur.execute("USE myrecipes")
-      delete = "DELETE FROM recipes where id='2'"
+      cur.execute("USE myrecipes")
+      delete = "DELETE FROM recipes where id='4'"
       cur.execute(delete)
       conn.commit()
-      result = cur.fetchone()
-      print(result)
-      # cur.execute(sql)
-      # test = cur.fetchone()
-      return result2
+      results = cur.fetchone()
+   
+
+      results = cur.execute("SELECT * FROM recipes").fetchall()
    except:
       cur.close()
-
-   return render_template("recipes.html")
-
-      # return test
-   #    # recipes = recipes.query.get(id)
-   #    cur.execute(sql)
-   #    sql = cur.fetchone()
-   # except:
-   #    cur.close()
-
-   # return f("Your recipe: {sql}")  
-   
-   #    cur.execute(recipes)
-   #    conn.commit()
-   #    cur.execute("SELECT * FROM users")
-   #    print(cur.fetchall())
-   # except:
-   #    cur.close()
-   
-
+   return redirect('/recipes/')
+   # return render_template("recipes.html")
 
 if __name__ =='__main__':
  app.run(debug=True, host='0.0.0.0')
