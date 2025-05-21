@@ -140,25 +140,27 @@ def recipeList():
       
    except:
       cur.close()
+   return render_template("recipes.html", results=results)    
+   
 
-   return render_template("recipes.html", results = results)    
-
-
-@app.route('/recipes/<int:id>', methods=["GET"])
+@app.route('/recipes/<int:id>', methods=["POST"])
 def select1Recipe(id):
    try:
 
       cur.execute("USE myrecipes")
-      delete = "DELETE FROM recipes where id='4'"
+      delete = "DELETE FROM recipes where id='1'"
       cur.execute(delete)
       conn.commit()
-      results = cur.fetchone()
-   
+      print("Entry Deleted")
 
-      results = cur.execute("SELECT * FROM recipes").fetchall()
+      cur.execute("SELECT * FROM recipes")
+      results = cur.fetchall()
+
    except:
       cur.close()
-   return redirect('/recipes/')
+   return render_template("recipes.html", results=results)    
+   
+   # return redirect('/recipes/')
    # return render_template("recipes.html")
 
 if __name__ =='__main__':
