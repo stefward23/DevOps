@@ -137,28 +137,30 @@ def recipeList():
       cur.execute(sql)
       # results = cur.fetchall()
       results = cur.fetchall()
+      print(results)
       
    except:
       cur.close()
-   return render_template("recipes.html", results=results)    
+   return render_template("recipes.html", results=results)
+       
    
 
-@app.route('/recipes/<int:id>', methods=["POST"])
-def select1Recipe(id):
-   try:
+# @app.route('/recipes/<int:id>', methods=["POST"])
+# def select1Recipe(id):
+#    try:
 
-      cur.execute("USE myrecipes")
-      delete = "DELETE FROM recipes where id='1'"
-      cur.execute(delete)
-      conn.commit()
-      print("Entry Deleted")
+#       cur.execute("USE myrecipes")
+#       delete = "DELETE FROM recipes where id='1'"
+#       cur.execute(delete)
+#       conn.commit()
+#       print("Entry Deleted")
 
-      cur.execute("SELECT * FROM recipes")
-      results = cur.fetchall()
+#       cur.execute("SELECT * FROM recipes")
+#       results = cur.fetchall()
 
-   except:
-      cur.close()
-   return render_template("recipes.html", results=results)    
+#    except:
+#       cur.close()
+#    return render_template("recipes.html", results=results)    
    
    # return redirect('/recipes/')
    # return render_template("recipes.html")

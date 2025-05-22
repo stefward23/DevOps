@@ -5,9 +5,6 @@
 <meta charset="utf-8">
 <meta name = "viewport" content="width=device-width">
 <title>Recipes</title>
-<link href="style.css" rel="stylesheet"
-
-type="text/css" />
 </head>
 
 <body>
@@ -18,17 +15,27 @@ type="text/css" />
             <th>Meal Time</th>
             <th>Ingredients</th>
             <th>Instructions</th>
+            <th>Delete</th>
         </tr>
-    {% for row in result %}
+    {% for result in results %}
         <tr>
-            <td>{{ row[0] }} </td>
-            <td>{{ row[1] }} </td>
-            <td>{{ row[2] }} </td>
-            <td>{{ row[3] }} </td>
-            <td>{{ row[4] }} </td>
+            <td>{{ result[0] }} </td>
+            <td>{{ result[1] }} </td>
+            <td>{{ result[2] }} </td>
+            <td>{{ result[3] }} </td>
+            <td>{{ result[4] }} </td>
+            <td><button>X</button></td>
+
+         
         </tr>
     {% endfor %}   
     </table>
 
 </body>
+<style>
+body {
+    background-color: blue;
+    color: white;
+}
+</style>
 </html>
