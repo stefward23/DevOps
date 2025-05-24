@@ -5,6 +5,7 @@ import sys
 
 app = Flask(__name__)
 
+# Define function that connects to Database
 def connectToDB():
    try:  
       conn = mariadb.connect(
@@ -20,80 +21,8 @@ def connectToDB():
       print(f"Error connecting to the database: {e}")
       sys.exit(1)
 
-conn = connectToDB()
-cur = conn.cursor()
 
-def createUsers():
-   try:
-      cur.execute("CREATE TABLE IF NOT EXISTS avengers (id INT AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(255), LastName VARCHAR(255))")
-      print("works")
-      sql = "INSERT INTO avengers (FirstName, LastName) VALUES (%s, %s)"
-      val = ('Bruce', 'Cat')
-      cur.execute(sql, val)
-      conn.commit()
-      cur.execute("SELECT * FROM avengers")
-      print(cur.fetchall())
-   except:
-      print("did not work")
-
-
-def updateUsers():
-   try:
-      update = "UPDATE users SET FirstName = 'Harry', LastName = 'Potter' WHERE FirstName = 'Jack'"
-      cur.execute(update)
-      conn.commit()
-      cur.execute("SELECT * FROM users")
-      print(cur.fetchall())
-   except:
-      cur.close()
-
-
-def deleteUsers():
-   try:
-      cur.execute("USE mydatabase")
-      sql = "DELETE FROM users WHERE FirstName='John'"
-      cur.execute(sql)
-      conn.commit()
-      cur.execute("SELECT * FROM users")
-      print(cur.fetchall())
-   except:
-      cur.close()
-   
-
-
-def dropDatabase ():
-   cur = connectToDB()
-   try: 
-      cur.execute("DROP DATABASE yea")
-      cur.execute("DROP DATABASE no")
-   except:
-      cur.close()
-
-def database():  
-   try:
-      cur.execute("USE mydatabase")
-      sql = "SELECT * FROM users"
-      cur.execute(sql)
-      result = cur.fetchall()
-      return "{}".format(result)
-   except:
-      cur.close()
-
-# #Creates loop 
- 
-# names = [
-#          {"firstName": "John", "lastName": "Smith"},
-#          {"firstName": "Betty", "lastName": "White"},
-#          {"firstName": "Carl", "lastName": "Ben"},
-#    ]
-
-# for name in names:
-#    print(names[0]["firstName"])
-
-
-content = "Static content added to the html form"
-
-# Use Connection
+# Create Home Route
 
 @app.route('/home/', methods=['GET', 'POST'])
 def enterRecipe():
@@ -106,14 +35,6 @@ def enterRecipe():
       cr = db.cursor()
       error = None
 
-      # if not recipename:
-      #    error = "Recipe is needed."
-      # elif not mealtime:
-      #    error = "Mealtime is needed."
-      # elif not ingredients:
-      #    error = "Ingredients is needed."
-      # elif not instructions:
-      #    error = "Instructions is needed."
 
       if error is None:
          try:
@@ -129,21 +50,35 @@ def enterRecipe():
    return render_template("home.html")    
 
 
-@app.route('/recipes/')
-def recipeList():  
-   try:
-      cur.execute("USE myrecipes")
-      sql = "SELECT * FROM recipes"
-      cur.execute(sql)
-      # results = cur.fetchall()
-      results = cur.fetchall()
-      print(results)
+# Create Recipes Route
+
+@app.route('/recipes/', methods=['GET', 'POST'])
+def recipeList():
+   if request.method == 'POST':
+      try:
+         dbc = connectToDB()
+         crc = dbc.cursor()
+         crc.execute("USE myrecipes")
+         delete = ("DELETE FROM recipes where id=s%")
+         crc.execute(delete)
+         print("This has be deleted")
+         crc.commit()
+      except:
+         crc.close()
+        
+
+   else:
+      try:
+         dbc = connectToDB()
+         crc = dbc.cursor()
+         crc.execute("USE myrecipes")
+         sql = "SELECT * FROM recipes"
+         crc.execute(sql)
+         results = crc.fetchall()
       
-   except:
-      cur.close()
-   return render_template("recipes.html", results=results)
-       
-   
+      except:
+         crc.close() 
+   return render_template("recipes.html", results=results)  
 
 # @app.route('/recipes/<int:id>', methods=["POST"])
 # def select1Recipe(id):

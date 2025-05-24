@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends 'navbar.html' %}
 
-<head>
-<meta charset="utf-8">
-<meta name = "viewport" content="width=device-width">
-<title>Recipes</title>
-</head>
-
-<body>
+{% block content %}
     <table>
         <tr>
             <th>ID</th>
@@ -24,18 +17,13 @@
             <td>{{ result[2] }} </td>
             <td>{{ result[3] }} </td>
             <td>{{ result[4] }} </td>
-            <td><button>X</button></td>
+            <td><form method="POST">
+                <input type="submit" name="delete" value="delete">
+            </form></td>
 
          
         </tr>
     {% endfor %}   
     </table>
 
-</body>
-<style>
-body {
-    background-color: blue;
-    color: white;
-}
-</style>
-</html>
+{% endblock %}
