@@ -54,51 +54,31 @@ def enterRecipe():
 
 @app.route('/recipes/', methods=['GET', 'POST'])
 def recipeList():
-   if request.method == 'POST':
-      try:
-         dbc = connectToDB()
-         crc = dbc.cursor()
-         crc.execute("USE myrecipes")
-         delete = ("DELETE FROM recipes where id=s%")
-         crc.execute(delete)
-         print("This has be deleted")
-         crc.commit()
-      except:
-         crc.close()
-        
-
-   else:
-      try:
-         dbc = connectToDB()
-         crc = dbc.cursor()
-         crc.execute("USE myrecipes")
-         sql = "SELECT * FROM recipes"
-         crc.execute(sql)
-         results = crc.fetchall()
+   try:
+      dbc = connectToDB()
+      crc = dbc.cursor()
+      crc.execute("USE myrecipes")
+      sql = "SELECT * FROM recipes"
+      crc.execute(sql)
+      results = crc.fetchall()
       
-      except:
-         crc.close() 
+   except:
+      crc.close() 
    return render_template("recipes.html", results=results)  
 
-# @app.route('/recipes/<int:id>', methods=["POST"])
-# def select1Recipe(id):
-#    try:
-
-#       cur.execute("USE myrecipes")
-#       delete = "DELETE FROM recipes where id='1'"
-#       cur.execute(delete)
-#       conn.commit()
-#       print("Entry Deleted")
-
-#       cur.execute("SELECT * FROM recipes")
-#       results = cur.fetchall()
-
-#    except:
-#       cur.close()
-#    return render_template("recipes.html", results=results)    
-   
-   # return redirect('/recipes/')
-   # return render_template("recipes.html")
+@app.route('/delete/<int:id>', methods=["POST"])
+def deleteRecipe(id):  
+   try:
+      dbc = connectToDB()
+      crc = dbc.cursor()
+      crc.execute("USE myrecipes")
+      delete = ("DELETE FROM recipes where id=s%")
+      crc.execute(delete)
+      print("This has been deleted")
+      dbc.commit()
+   except:
+      crc.close()
+   return redirect('/recipes/')
 
 if __name__ =='__main__':
  app.run(debug=True, host='0.0.0.0')
