@@ -72,10 +72,18 @@ def deleteRecipe(id):
       dbc = connectToDB()
       crc = dbc.cursor()
       crc.execute("USE myrecipes")
-      delete = ("DELETE FROM recipes where id=s%")
-      crc.execute(delete)
-      print("This has been deleted")
+      print("1")
+      delete_record = request.form['delete']
+      print(delete_record)
+      print("2")
+      # print("hello")
+      delete = ("DELETE FROM recipes where id=%s")
+      print("3")
+      # return id
+      crc.execute(delete,delete_record)
+      print("4")
       dbc.commit()
+      print('5')
    except:
       crc.close()
    return redirect('/recipes/')

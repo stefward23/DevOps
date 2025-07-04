@@ -3,7 +3,6 @@
 {% block content %}
     <table>
         <tr>
-            
             <th>Recipe Name</th>
             <th>Meal Time</th>
             <th>Ingredients</th>
@@ -16,8 +15,8 @@
             <td>{{ result[2] }} </td>
             <td>{{ result[3] }} </td>
             <td>{{ result[4] }} </td>
-            <td><form method="POST">
-                <input type="submit" name="delete" value="delete">
+            <td><form action="/delete/{{result[0]}}" method="POST">
+                <input type="submit" name="delete" value="{{result[0]}}">
             </form></td>
         </tr>
     {% endfor %}   
