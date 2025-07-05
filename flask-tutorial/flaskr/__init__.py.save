@@ -66,26 +66,25 @@ def recipeList():
       crc.close() 
    return render_template("recipes.html", results=results)  
 
-@app.route('/delete/<int:id>', methods=['POST'])
-def deleteRecipe(id):
-   if request.method == 'POST':
-      db = connectToDB()
-      cr = db.cursor()
-      error = None
-
-      if error is None:
-         try:
-            cr.execute(
-            "DELETE FROM recipes where id=?", (id,)
-            )
-            db.commit()
-         except cr.IntegrityError:
-            error = "failure"
-         else: 
-            return redirect('/recipes/')
-    
- 
-
+@app.route('/delete/<int:id>', methods=["POST"])
+def deleteRecipe(id):  
+   try:
+      dbc = connectToDB()
+      crc = dbc.cursor()
+      crc.execute("USE myrecipes")
+      print("1")
+      delete_record = request.form['delete']
+      print(delete_record)
+      print("2")
+      delete = ("DELETE FROM recipes where id=%s")
+      print("3")
+      crc.execute(delete,delete_record)
+      print("4")
+      dbc.commit()
+      print('5')
+   except:
+      crc.close()
+   return redirect('/recipes/')
 
 if __name__ =='__main__':
  app.run(debug=True, host='0.0.0.0')
