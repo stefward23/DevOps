@@ -5,7 +5,7 @@ import sys
 
 app = Flask(__name__)
 
-# Define function that connects to Database
+# Connect to database function.
 def connectToDB():
    try:  
       conn = mariadb.connect(
@@ -22,8 +22,7 @@ def connectToDB():
       sys.exit(1)
 
 
-# Create Home Route
-
+#  Home route, function allows user to enter recipes and submit them to the database if no errors.
 @app.route('/home/', methods=['GET', 'POST'])
 def enterRecipe():
    if request.method == 'POST':
@@ -34,7 +33,6 @@ def enterRecipe():
       db = connectToDB()
       cr = db.cursor()
       error = None
-
 
       if error is None:
          try:
@@ -50,10 +48,7 @@ def enterRecipe():
    return render_template("home.html")    
 
 
-# Create Recipes Route
-
-@app.route('/recipes/', methods=['GET', 'POST'])
-def recipeList():
+def fetchNewRecipes():
    try:
       dbc = connectToDB()
       crc = dbc.cursor()
@@ -61,11 +56,54 @@ def recipeList():
       sql = "SELECT * FROM recipes"
       crc.execute(sql)
       results = crc.fetchall()
+      return results
+   except Exception as e:
+      print("Error in fetchNameRecipes:", e)
+      return[]
+   finally:
+      crc.close()
+      dbc.close()
+   
       
+
+# Recipes route, function lists recipes from database.
+@app.route('/recipes/', methods=['GET', 'POST'])
+def listRecipe():
+   try:
+      results = fetchNewRecipes()
    except:
-      crc.close() 
+      print("Error in listRecipe:", e)
+      results = []
    return render_template("recipes.html", results=results)  
 
+# Update database, allows users to update database entries.
+@app.route('/update/', methods=['GET', 'POST'])
+def updateRecipe():
+   if request.method == 'POST':
+      recipename = request.form['recipe_name']
+      mealtime = request.form['meal_time']
+      ingredients = request.form['ingredients']
+      instructions = request.form['instructions']
+      db = connectToDB()
+      cr = db.cursor()
+      results = fetchNewRecipes()
+      error = None
+
+      if error is None:
+         try:
+            cr.execute(
+            "UPDATE recipes (RecipeName, MealTime, Ingredients, Instructions) VALUES (?, ?, ?, ?)", (recipename, mealtime, ingredients, instructions),
+            )
+            db.commit()
+         except cr.IntegrityError:
+            error = f"Recipe {recipename} is already entered."
+         else: 
+            return render_template("update.html")
+   
+         return render_template("update.html", results=results)
+
+
+# Delete route, function deletes entry from database.
 @app.route('/delete/<int:id>', methods=['POST'])
 def deleteRecipe(id):
    if request.method == 'POST':

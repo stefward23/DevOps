@@ -8,6 +8,7 @@
             <th>Ingredients</th>
             <th>Instructions</th>
             <th>Delete</th>
+            <th>Edit</th>
         </tr>
     {% for result in results %}
         <tr>
@@ -17,6 +18,9 @@
             <td>{{ result[4] }} </td>
             <td><form action="/delete/{{result[0]}}" method="POST">
                 <input type="submit" value="delete">
+            </form></td>
+            <td><form action="/update" method="GET">
+                <input type="submit" value="Update">
             </form></td>
         </tr>
     {% endfor %}   

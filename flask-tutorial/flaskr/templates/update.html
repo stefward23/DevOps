@@ -1,0 +1,19 @@
+  
+{% extends 'navbar.html' %}
+    
+{% block content %}
+<!-- <h1>Recipe Roadmap</h1> -->
+<h1>Update Page</h1>
+
+<form method="POST">
+    <label for="recipe_name">Recipe Name:</label><br>
+    <input type="text" id="recipe_name" name="recipe_name" value="{{results[1}}"  required><br>
+    <label for="meal_time">Meal Time:</label><br>
+    <input type="text" id="meal_time" name="meal_time"  required><br>
+    <label for="ingredients">Ingredients:</label><br>
+    <input type="text" id="ingredients" name="ingredients"  required><br>
+    <label for="instructions">Instructions:</label><br>
+    <input type="text" id="instructions" name="instructions"  required><br>
+    <input type="submit" value="Submit">
+</form>  
+{% endblock %}
