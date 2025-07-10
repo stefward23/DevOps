@@ -78,29 +78,38 @@ def listRecipe():
 
 # Update database, allows users to update database entries.
 @app.route('/update/', methods=['GET', 'POST'])
-def updateRecipe():
-   if request.method == 'POST':
-      recipename = request.form['recipe_name']
-      mealtime = request.form['meal_time']
-      ingredients = request.form['ingredients']
-      instructions = request.form['instructions']
-      db = connectToDB()
-      cr = db.cursor()
+def updateRecipe(id):
+   try:
       results = fetchNewRecipes()
-      error = None
+   except:
+      print("Error in listRecipe:", e)
+      results = []
+   return render_template("update.html", results=results)
 
-      if error is None:
-         try:
-            cr.execute(
-            "UPDATE recipes (RecipeName, MealTime, Ingredients, Instructions) VALUES (?, ?, ?, ?)", (recipename, mealtime, ingredients, instructions),
-            )
-            db.commit()
-         except cr.IntegrityError:
-            error = f"Recipe {recipename} is already entered."
-         else: 
-            return render_template("update.html")
+# Show whats in the form 
    
-         return render_template("update.html", results=results)
+   # if request.method == 'GET':
+   #    recipename = request.form['recipe_name']
+   #    mealtime = request.form['meal_time']
+   #    ingredients = request.form['ingredients']
+   #    instructions = request.form['instructions']
+   #    db = connectToDB()
+   #    cr = db.cursor()
+   #    results = fetchNewRecipes()
+   #    error = None
+
+      # if error is None:
+      #    try:
+      #       cr.execute(
+      #       "UPDATE recipes (RecipeName, MealTime, Ingredients, Instructions) VALUES (?, ?, ?, ?)", (recipename, mealtime, ingredients, instructions),
+      #       )
+      #       db.commit()
+      #    except cr.IntegrityError:
+      #       error = f"Recipe {recipename} is already entered."
+      #    else: 
+      #       return render_template("update.html")
+   
+   return render_template("update.html", results=results)
 
 
 # Delete route, function deletes entry from database.
