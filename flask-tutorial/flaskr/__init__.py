@@ -69,22 +69,38 @@ def fetchNewRecipes():
 # Recipes route, function lists recipes from database.
 @app.route('/recipes/', methods=['GET', 'POST'])
 def listRecipe():
+
+   
    try:
       results = fetchNewRecipes()
    except:
-      print("Error in listRecipe:", e)
+      print("Error in listRecipe:")
       results = []
    return render_template("recipes.html", results=results)  
 
 # Update database, allows users to update database entries.
-@app.route('/update/', methods=['GET', 'POST'])
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
 def updateRecipe(id):
-   try:
-      results = fetchNewRecipes()
-   except:
-      print("Error in listRecipe:", e)
-      results = []
-   return render_template("update.html", results=results)
+   db = connectToDB()
+   cr = db.cursor()
+   error = None
+   
+   if error is None:  
+      try:
+         print("one")
+         # results = fetchNewRecipes(id) 
+         results = "SELECT * FROM recipes WHERE id=?"
+         print(results,(id,))
+         cr.execute(results,(id,))
+         results = cr.fetchall()
+         db.commit()
+         print(results)
+      except cr.IntegrityError:
+         error = "failure"
+         print("Error in listRecipe:")
+         results = []
+      else:
+         return render_template("update.html", results=results)
 
 # Show whats in the form 
    

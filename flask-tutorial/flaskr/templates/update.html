@@ -1,19 +1,18 @@
 {% extends 'navbar.html' %}
 
 {% block content %}
-    <table>
-        <tr>
-            <th>Recipe Name</th>
-            <th>Meal Time</th>
-            <th>Ingredients</th>
-            <th>Instructions</th>
-            <th>Delete</th>
-            <th>Edit</th>
-        </tr>
+
     {% for result in results %}
-            <td>{{ result[1] }} </td>
-            <td>{{ result[2] }} </td>
-            <td>{{ result[3] }} </td>
-            <td>{{ result[4] }} </td>
-       
+ <form>
+    <label for="recipe_name">Recipe Name:</label><br>
+    <input type="text" id="recipe_name" value="{{ result[1] }}" required><br>
+    <label for="meal_time">Meal Time:</label><br>
+    <input type="text" id="meal_time" value="{{ result[2] }}" required><br>
+    <label for="ingredients">Ingredients:</label><br>
+    <input type="text" id="ingredients" value="{{ result[3] }}" required><br>
+    <label for="instructions">Instructions:</label><br>
+    <input type="text" id="instructions" value="{{ result[4] }}"><br>
+    <input type="submit" value="Update">
+</form>  
+    {% endfor %}
 {% endblock %}
