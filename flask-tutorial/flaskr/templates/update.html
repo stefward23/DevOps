@@ -3,16 +3,17 @@
 {% block content %}
 
     {% for result in results %}
- <form>
+ <form method="POST">
     <label for="recipe_name">Recipe Name:</label><br>
-    <input type="text" id="recipe_name" value="{{ result[1] }}" required><br>
+    <input type="text" id="recipe_name" value="{{ result[1] }}" name="recipe_name" required><br>
     <label for="meal_time">Meal Time:</label><br>
-    <input type="text" id="meal_time" value="{{ result[2] }}" required><br>
+    <input type="text" id="meal_time" value="{{ result[2] }}" name="meal_time" required><br>
     <label for="ingredients">Ingredients:</label><br>
-    <input type="text" id="ingredients" value="{{ result[3] }}" required><br>
+    <input type="text" id="ingredients" value="{{ result[3] }}" name="ingredients"required><br>
     <label for="instructions">Instructions:</label><br>
-    <input type="text" id="instructions" value="{{ result[4] }}"><br>
+    <input type="text" id="instructions" value="{{ result[4] }}" name="instructions"><br>
     <input type="submit" value="Update">
 </form>  
+
     {% endfor %}
 {% endblock %}

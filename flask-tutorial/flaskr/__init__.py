@@ -1,12 +1,11 @@
 import mariadb
-import datetime
 from flask import Flask, render_template, request, redirect
 import sys
 
 app = Flask(__name__)
 
 # Connect to database function.
-def connectToDB():
+def connectToDB(): 
    try:  
       conn = mariadb.connect(
          host="172.19.0.3",
@@ -15,12 +14,10 @@ def connectToDB():
          password="123456",
          database="myrecipes"
          )
-      return conn
-      
+      return conn     
    except mariadb.Error as e:
       print(f"Error connecting to the database: {e}")
       sys.exit(1)
-
 
 #  Home route, function allows user to enter recipes and submit them to the database if no errors.
 @app.route('/home/', methods=['GET', 'POST'])
@@ -63,14 +60,10 @@ def fetchNewRecipes():
    finally:
       crc.close()
       dbc.close()
-   
-      
 
 # Recipes route, function lists recipes from database.
 @app.route('/recipes/', methods=['GET', 'POST'])
 def listRecipe():
-
-   
    try:
       results = fetchNewRecipes()
    except:
@@ -85,10 +78,8 @@ def updateRecipe(id):
    cr = db.cursor()
    error = None
    
-   if error is None:  
+   if request.method == 'GET': 
       try:
-         print("one")
-         # results = fetchNewRecipes(id) 
          results = "SELECT * FROM recipes WHERE id=?"
          print(results,(id,))
          cr.execute(results,(id,))
@@ -99,32 +90,32 @@ def updateRecipe(id):
          error = "failure"
          print("Error in listRecipe:")
          results = []
-      else:
+      finally:
          return render_template("update.html", results=results)
-
-# Show whats in the form 
    
-   # if request.method == 'GET':
-   #    recipename = request.form['recipe_name']
-   #    mealtime = request.form['meal_time']
-   #    ingredients = request.form['ingredients']
-   #    instructions = request.form['instructions']
-   #    db = connectToDB()
-   #    cr = db.cursor()
-   #    results = fetchNewRecipes()
-   #    error = None
+   elif request.method == 'POST':
+      try:
 
-      # if error is None:
-      #    try:
-      #       cr.execute(
-      #       "UPDATE recipes (RecipeName, MealTime, Ingredients, Instructions) VALUES (?, ?, ?, ?)", (recipename, mealtime, ingredients, instructions),
-      #       )
-      #       db.commit()
-      #    except cr.IntegrityError:
-      #       error = f"Recipe {recipename} is already entered."
-      #    else: 
-      #       return render_template("update.html")
-   
+         recipename = request.form['recipe_name']
+         mealtime = request.form['meal_time']
+         ingredients = request.form['ingredients']
+         instructions = request.form['instructions']
+
+         cr.execute(
+         "UPDATE recipes SET RecipeName = ?, MealTime = ?, Ingredients = ?, Instructions = ? WHERE id = ?",
+         (recipename, mealtime, ingredients, instructions, id)
+)
+
+         db.commit()
+      except cr.IntegrityError:
+         error = "failure"
+         print("Error")
+      finally:
+         return redirect('/recipes/') 
+   else:
+         error = "failure"
+         print("Error in listRecipe:")
+         results = []  
    return render_template("update.html", results=results)
 
 
