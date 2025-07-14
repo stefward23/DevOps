@@ -1,6 +1,6 @@
 # Database Delettion completed.
 
-#### Time: 1hr 
+#### Time: 1 hr 
 
 #### Home page with form, entering poutine recipe.
 
