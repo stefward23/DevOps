@@ -8,21 +8,27 @@ app = Flask(__name__)
 def connectToDB(): 
    try:  
       conn = mariadb.connect(
-         host="172.19.0.3",
-         port=3306,
-         user="root",
-         password="123456",
-         database="myrecipes"
+         host="172.19.0.3", # Address to connect to database
+         port=3306, # Port used by database application
+         user="root", # Username of database user
+         password="123456", # Password of database user
+         database="myrecipes" # Database to connect to
          )
       return conn     
-   except mariadb.Error as e:
-      print(f"Error connecting to the database: {e}")
-      sys.exit(1)
+   except mariadb.Error as e: # Set mariadb.error as variable e
+      print(f"Error connecting to the database: {e}") # Print error connecting and the mariadb error as well
+   sys.exit(1)
 
-#  Home route, function allows user to enter recipes and submit them to the database if no errors.
-@app.route('/home/', methods=['GET', 'POST'])
-def enterRecipe():
-   if request.method == 'POST':
+
+# Redirect / to Home Page
+@app.route('/', methods=['GET'])  # / Route
+def redirectToHome(): # Function to Redirect / to Home
+      return redirect('/home/') # Return home
+
+#  Home route, Function allows user to enter Recipes and submit them to the Database if no errors.
+@app.route('/home/', methods=['GET', 'POST']) # Home Route with GET and POST HTTP Request Methods
+def enterRecipe(): # EnterRecipe function
+   if request.method == 'POST':  
       recipename = request.form['recipe_name']
       mealtime = request.form['meal_time']
       ingredients = request.form['ingredients']
@@ -39,8 +45,9 @@ def enterRecipe():
             db.commit()
          except cr.IntegrityError:
             error = f"Recipe {recipename} is already entered."
-         else: 
-            return render_template("home.html")
+         finally:
+            cr.close()
+            db.close()
 
    return render_template("home.html")    
 
@@ -91,6 +98,8 @@ def updateRecipe(id):
          print("Error in listRecipe:")
          results = []
       finally:
+         cr.close()
+         db.close()
          return render_template("update.html", results=results)
    
    elif request.method == 'POST':
@@ -111,6 +120,8 @@ def updateRecipe(id):
          error = "failure"
          print("Error")
       finally:
+         cr.close()
+         db.close()
          return redirect('/recipes/') 
    else:
          error = "failure"
@@ -135,10 +146,12 @@ def deleteRecipe(id):
             db.commit()
          except cr.IntegrityError:
             error = "failure"
-         else: 
-            return redirect('/recipes/')
+         finally:
+            cr.close()
+            db.close()
+      else: 
+         return redirect('/recipes/')
     
- 
 
 
 if __name__ =='__main__':
