@@ -1,3 +1,11 @@
 # W1seGuy Room Attempt
 
-1. Ran nmap on the target computer using the hint given.
+Ran nmap on the target computer using the hint given.
+nmap -sV -p1000-1500 <target_IP>
+
+netcat <target_IP> <port_number> 
+
+Downloaded the taskfiles which had python code.
+
+
+FAILED!
