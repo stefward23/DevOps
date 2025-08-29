@@ -27,3 +27,6 @@ How to create a proper hashed password:
 5. Store the hash value and the unique salt used (`Y4UV*^(=go_!`).
 
 https://hashcat.net/wiki/doku.php?id=example_hashes
+
+
+# Completed
