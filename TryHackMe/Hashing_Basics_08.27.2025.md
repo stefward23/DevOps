@@ -29,6 +29,8 @@ How to create a proper hashed password:
 https://hashcat.net/wiki/doku.php?id=example_hashes
 
 #### Hashcat example
+#### -m = hashcat mode 
+#### -a = attack mode
 hashcat -m 3200 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
 
 # Completed
