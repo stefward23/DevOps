@@ -1,0 +1,45 @@
+# Moniker Link (CVE-2024-21413)
+
+## Time: 1.30 Hr
+
+### URL: https://tryhackme.com/room/monikerlink
+
+Leak user's credentials using CVE-2024-21413 to bypass Outlook's Protected View.
+
+Tools used: responder 
+
+What Responder does
+
+Listens for broadcast name resolution requests:
+
+LLMNR (Link-Local Multicast Name Resolution)
+
+NBT-NS (NetBIOS Name Service)
+
+mDNS (Multicast DNS)
+
+When a Windows machine cannot resolve a hostname via DNS, it may fall back to LLMNR/NBT-NS.
+
+Responder spoofs the reply, making the victim believe the attacker is the correct host.
+
+The victim then tries to authenticate (e.g., SMB, HTTP) → sending NTLMv1/v2 hashes to Responder.
+
+Pentesters can capture these hashes and later crack them offline or relay them to other services (NTLM relay attacks).
+
+🔹 Common Use Cases
+
+Hash harvesting → Collect NTLM credentials for offline cracking.
+
+SMB/HTTP relay attacks → Use captured credentials to authenticate to other systems without cracking them.
+
+Network visibility → See which systems are making name resolution broadcasts.
+
+🔹 Example usage
+sudo responder -I eth0
+
+
+-I eth0 → listens on interface eth0.
+
+Captured hashes are usually saved in /usr/share/responder/logs/.
+
+## Completed 
