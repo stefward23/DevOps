@@ -2,6 +2,10 @@
 
 ## https://tryhackme.com/room/easyctf
 
+## Connect Kali VM to openvpn
+```
+sudo openvpn "filename.ovpn"
+
 ### OS used:
 Linux: Debian Based
 ### Tools used: 
