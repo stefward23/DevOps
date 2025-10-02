@@ -1,4 +1,4 @@
-# Simple CTF Attempt: "Beginner level ctf"
+# Simple CTF: "Beginner level ctf"
 
 ## https://tryhackme.com/room/easyctf
 
