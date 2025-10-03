@@ -32,4 +32,11 @@ Attempted to use tools like nikto to no success.
 Researched and used AI to find a tool for the job.
 
 It revealed that the path /simple was accessible 
+<img width="992" height="389" alt="Screenshot 2025-10-03 070541" src="https://github.com/user-attachments/assets/ca54e257-52b9-4570-b9dc-e3585d96f17f" />
+Accessed the path:
+<img width="966" height="553" alt="Screenshot 2025-10-03 070541" src="https://github.com/user-attachments/assets/3a92a49c-1950-4feb-a6a4-088ea886c860" />
+
+The site is powered by CMS Made Simple version 2.2.8
+
+# EXPLOIT DB
 
