@@ -22,8 +22,8 @@ Which we could then have probed and found a hint
 # HTTP
 
 Used firebox to access the webserver running on port 80
+<img width="920" height="386" alt="image" src="https://github.com/user-attachments/assets/0f5acafc-8966-4a06-88cf-b68b9200f290" />
 
-gobuster to find / paths of web application hosted on port 80. i.e /simple /admin etc
 
 # GOBUSTER
 We spent a few hours trying to find why a webserver was running on the system and just had the default page.
