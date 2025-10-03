@@ -75,9 +75,9 @@ Youtube on VIM Privilge Escalation Linux: https://www.youtube.com/watch?v=hYQVRD
 It should us how to openssl to create a hashed password and sudo vim into /etc/passwd and add a root user to it.
 <img width="589" height="175" alt="image" src="https://github.com/user-attachments/assets/b0549c6c-d0f6-4c0b-8e59-40510f094ebb" 
 
-After going over bobbys solution, we noticed that Dope's solution only worked because the user had the ability to run vim as a sudo user. If he did not have su vim privlige, saving the /etc/passwd would have failed.
+After going over bobby's solution, we noticed that Dope's solution only worked because the user had the ability to run vim as a sudo user. If he did not have su vim privlige, saving the /etc/passwd would have failed.
 
-Good Command to not: sudo -l -l
+Good Command to note: sudo -l -l
 <img width="810" height="279" alt="image" src="https://github.com/user-attachments/assets/6911c552-1772-4ff5-a1c5-baa6a9434981" />
 
 Notably other write-ups: 
